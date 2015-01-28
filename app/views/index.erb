@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Welcome to link shotener</h1>
+  <p>put the link to shorten</p>
+
+  <form action="/urls" method="post">
+    <input type="text" name="thelink">
+    <input type="submit" value="Shorten me!">
+  </form>
+  <br />
+  <br />
+
+
+<table border=1px align="center">
+  <tr>
+    <th>ID</th>
+    <th>Long url</th>
+    <th>Short url</th>
+    <th>Click count</th>
+  </tr>
+  <% @urls.each do |x| %>
+  <tr>
+    <td><%= x.id %></td>
+    <td><a href="<%= x.long_url %>"><%= x.long_url %></a></td>
+    <td><a href="http://localhost:9393/<%= x.short_url %>"><%= x.short_url %></td>
+    <td><%= x.click_count %></td>
+  </tr>
+  <% end %>
+</table>
+
+</div>
